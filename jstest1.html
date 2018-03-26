@@ -4,33 +4,21 @@
 	<title>Test</title>
 </head>
 <body>
-<div>
-	<button value="black" onclick="checkColor(this.value)">black</button>
-	<button value="gold" onclick="checkColor(this.value)">gold</button>
-	<button value="blue" onclick="checkColor(this.value)">blue</button>
-	<button value="rose-gold" onclick="checkColor(this.value)">rose gold</button>
-</div>
-<div>
-	<img src="" id="imageBlock" alt="iphone">
-</div>
-<script type="text/javascript">
-	function checkColor(colorName) {
-		var url= "./img/"+colorName+".jpeg";
-		switch(colorName){
-			case "black":
-			document.getElementById("imageBlock").src =url;
-			break;
-			case "gold":
+	<div>
+		<button value="black" onclick="checkColor(this.value)">black</button>
+		<button value="gold" onclick="checkColor(this.value)">gold</button>
+		<button value="blue" onclick="checkColor(this.value)">blue</button>
+		<button value="rose-gold" onclick="checkColor(this.value)">rose gold</button>
+	</div>
+	<div>
+		<img src="" id="imageBlock" alt="iphone" style="display: none;">
+	</div>
+	<script type="text/javascript">
+		function checkColor(colorName) {
+			var url= "./img/"+colorName+".jpeg";
 			document.getElementById("imageBlock").src = url;
-			break;
-			case "blue":
-			document.getElementById("imageBlock").src = url;
-			break;
-			case "rose-gold":
-			document.getElementById("imageBlock").src = url;
-			break;
+			document.getElementById("imageBlock").style.display="block";
 		}
-	}
-</script>
+	</script>
 </body>
 </html>
