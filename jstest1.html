@@ -17,7 +17,11 @@
 		function checkColor(colorName) {
 			var url= "./img/"+colorName+".jpeg";
 			document.getElementById("imageBlock").src = url;
-			document.getElementById("imageBlock").style.display="block";
+			var stat= document.getElementById("imageBlock").style.display;
+			if(stat=="none")
+			{
+				document.getElementById("imageBlock").style.display="block";
+			}
 		}
 	</script>
 </body>
