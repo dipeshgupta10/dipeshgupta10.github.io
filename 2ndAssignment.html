@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Assignment2</title>
+	<style type="text/css">
+	*{padding: 0;margin: 0;}
+	html{height: 100%;}
+	body{display: flex;justify-content: center;min-height: 100%;flex-direction: column;}
+	.wrapper{width: 600px;height: 300px;margin: 0 auto;background: #ccc;text-align: center;font-size: 20px;line-height: 25px;color: #000;padding: 10px;}
+	.inner_wrapper{display: flex;justify-content: center;flex-direction: column;height: 282px;}
+	p{font-family: arial,sans-serif;margin-top: 20px;}
+
+</style>
+</head>
+<body id="body">
+	<div class="wrapper" id="wrapper">
+		<button id="bt1" value="qa1" onclick="validate(this.value)">click me to check the answers</button>
+		<div class="inner_wrapper" id="inner_wrapper">
+			<p id="ans"></p>
+			<p id="ans2"></p>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var stage=[];
+		function validate(val){ 
+			var j = 1 ,d = 2,
+			data={
+				qa1:function(){
+					counter=0;
+					counter++; 
+					document.getElementById("ans").innerHTML="counter++ this is called post increment which returns the value then its get increment and counter will be "+counter;
+					++counter;
+					document.getElementById("ans2").innerHTML="++counter this is called pre increment which increment first then return the value and counter will be "+counter;
+				},
+				qa2:function(){
+					var n=2;
+					n*=3+5;
+					document.getElementById("ans").innerHTML="first addition take place 3+5 then its get multipe by 2, so answer which we get is "+n;
+					document.getElementById("ans2").style.display="none";
+
+				},
+				qa3:function(){
+					var a=1,b=1;
+					var c=++a;
+					document.getElementById("ans").innerHTML="This is var c and value is "+c;
+					var d=b++;
+					document.getElementById("ans2").style.display="block";
+					document.getElementById("ans2").innerHTML="This is var d and value is "+d;
+				},
+				qa4:function(){
+					var a=2;
+					var x=1+(a*=2);
+					console.log(x);
+					document.getElementById("ans2").style.display="none";
+					document.getElementById("ans").innerHTML="first its get multiple then get addition and value of x is "+x;
+
+				},
+				qa5:function(){
+					var a = [];
+					for(i=0;i<4;i++){
+						var val=i+1;
+						a.push(parseInt(prompt("Please enter the "+val+" number to compare")));
+					}
+					var num=0;
+					for (var i=0;i<=a.length;i++) {
+						if(a[i]>=num){
+							num=a[i];
+						}
+					}
+					document.getElementById("ans").innerHTML="The greatest num among all is "+num;
+					document.getElementById("ans2").style.display="block";
+					document.getElementById("ans2").innerHTML="These are the given numbers by user "+a;
+
+				},
+				qa6:function(){
+					var a=1,b=2,result;
+					a+b<4 ? result="Below" : result="Over";
+					document.getElementById("ans").innerHTML="Answer of 6 question is "+result;
+					document.getElementById("ans2").style.display="none";
+				},
+				qa7:function(){
+					var val=parseInt(prompt("please enter the num for question 7"));
+					switch(val){
+						case 0:
+						document.getElementById("ans").innerHTML="Answer of 7 question is "+val;
+						break;
+						case 1:
+						document.getElementById("ans").innerHTML="Answer of 7 question is "+val;
+						break;
+						case 2:
+						case 3:
+						document.getElementById("ans").innerHTML="Answer of 7 question is "+val;
+						break;
+						default:
+						document.getElementById("ans").innerHTML="Please enter something to compare";
+					}
+				},
+				qa8:function(){
+					var age=parseInt(prompt("please enter you age"));
+					if(age>12&&age<20)
+					{
+						alert("teenager");
+						document.getElementById("ans").innerHTML="your are teenager";
+					}
+					else if(age>=0&&age<13)
+					{
+						alert("child");
+						document.getElementById("ans").innerHTML="your are child";
+					}
+					else{
+						alert("adult");
+						document.getElementById("ans").innerHTML="your are adult";
+					}
+
+				},
+				qa9:function(){
+					var d= new Date(),dayNum=d.getDay();
+					daysArray=["Sunday","Monday","tuesday","Wednesday","Thursday","Friday","Saturday"];
+					document.getElementById("ans").innerHTML=daysArray[dayNum];
+				},
+				qa10:function(){
+					var obj= new Date()
+					var hours=obj.getHours();
+					if(hours>=4&&hours<=11){
+						document.getElementById("wrapper").style.backgroundColor="yellow";
+						document.getElementById("ans").innerHTML="Good Morning!";
+
+					}
+					else if(hours>=11&&hours<=16){
+						document.getElementById("wrapper").style.backgroundColor="orange";
+						document.getElementById("ans").innerHTML="Good Afternoon!";
+					}
+					else if(hours>=16&&hours<=21){
+						document.getElementById("wrapper").style.backgroundColor="blue";
+						document.getElementById("ans").innerHTML="Good Evening!";
+					}
+					else
+					{
+						document.getElementById("wrapper").style.backgroundColor="black";
+						document.getElementById("ans").innerHTML="Good Night!";
+					}
+
+				},
+			}
+			stage.push(val.split(",")); 
+			
+			for(var i = 0; i<stage.length;i++){
+				if( stage[i] === stage[i]){
+					if(j<11){
+						document.getElementById("bt1").value="qa"+(d);
+						document.getElementById("bt1").innerHTML="Click for QA "+(d);
+						++j;
+						d++;
+					}else{
+						document.getElementById("bt1").style.display='none';
+						return;
+					}
+				}
+			} 
+			return data[val]();
+		}
+	</script>
+</body>
+</html>
