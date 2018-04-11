@@ -23,7 +23,7 @@
 	<script type="text/javascript">
 		var stage=[];
 		function validate(val){ 
-			var j = 1 ,d = 2,
+			var j = 2 ,
 			data={
 				qa1:function(){
 					counter=0;
@@ -145,18 +145,17 @@
 			stage.push(val.split(",")); 
 			
 			for(var i = 0; i<stage.length;i++){
-				if( stage[i] === stage[i]){
-					if(j<11){
-						document.getElementById("bt1").value="qa"+(d);
-						document.getElementById("bt1").innerHTML="Click for QA "+(d);
-						++j;
-						d++;
-					}else{
-						document.getElementById("bt1").style.display='none';
-						return;
-					}
+				if(j<=10)
+				{
+					document.getElementById("bt1").value="qa"+(j);
+					document.getElementById("bt1").innerHTML="Click for QA "+(j);
+					j++;
 				}
-			} 
+				else{
+					document.getElementById("bt1").style.display='none';
+				}
+			}
+			console.log(stage); 
 			return data[val]();
 		}
 	</script>
