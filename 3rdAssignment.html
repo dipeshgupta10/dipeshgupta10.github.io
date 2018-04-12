@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+
+//---------1
+	function checkAge(age) {
+  if (age > 18) {
+    return true;
+  } else {
+    return confirm('Did parents allow you?');
+  }
+}
+console.log(checkAge(20));
+
+function checkAge2(age) {
+  if (age > 18) {
+    return true;
+  }
+ return confirm('Did parents allow you?');
+}
+console.log(checkAge2(11));
+console.log("output of both the function will be same");
+
+//---------2
+function checkTernary(age) {
+  return age > 18 ? true : confirm("Did parents allow you?");
+}
+console.log(checkTernary(16));
+
+
+//---------3
+var numCheck=function(num,num2){
+
+	return num>num2 ? alert("first number is bigger than Second") : alert("Second number is bigger than first");
+
+}
+numCheck(3,2);
+
+//---------4 prime number
+function isPrime(num) {
+	for ( var i = 2; i < num; i++ ) {
+		if ( num % i === 0 ) {
+			return false;
+		}
+	}
+	return true;
+}
+
+function display(n) {
+	var arr = [2];
+	for ( var i = 3; i < n; i+=2 ) {
+		if ( isPrime(i) ) {
+			arr.push(i);
+		}
+	}
+    console.log(arr); 
+}
+
+display(100);
+
+
+//---------5
+
+(function () {
+    alert("this is self executing function");
+})();
+
+//------------6
+
+testDeclaration();
+function testDeclaration()
+{
+	console.log("this is test declaration function");
+}
+
+console.log("The main difference between the two is that a function declaration can be placed ANYWHERE in a script including at the bottom of the script. The browser's JavaScript interpreter reads the script before running anything and commits the function to memory.");
+
+
+var testExpression=function ()
+{
+	console.log("this is test declaration function");
+}
+testExpression();
+
+console.log("A function expression, on the other hand, is only created during runtime -- in other words you can't call the function until the JavaScript interpreter evaluates (or runs) the expression.");
+
+
+
+
+</script>
+</body>
+</html>
