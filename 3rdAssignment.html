@@ -6,15 +6,16 @@
 	*{padding: 0;margin: 0;}
 	html{height: 100%;}
 	body{display: flex;justify-content: center;min-height: 100%;flex-direction: column;}
-	.wrapper{width: 600px;height: 300px;margin: 0 auto;background: #ccc;text-align: center;font-size: 20px;line-height: 25px;color: #000;padding: 10px;}
+	.wrapper{width: 600px;height: 300px;margin: 0 auto;background: #717b95;text-align: center;font-size: 20px;line-height: 25px;color: #fff;padding: 10px;border-radius: 6px;}
 	.inner_wrapper{display: flex;justify-content: center;flex-direction: column;height: 282px;}
 	p{font-family: arial,sans-serif;margin-top: 20px;word-wrap: break-word;}
+	#bt1{border: 0;outline: none;height: 40px;width: 200px;line-height: 40px;background-color: #67bfe2;color: #fff;border-radius: 12px;cursor: pointer;}
 
 </style>
 </head>
 <body id="body">
 	<div class="wrapper" id="wrapper">
-		<button id="bt1" value="qa1" onclick="validate(this.value)">click to start Assignment 3</button>
+		<button id="bt1" value="qa1" onclick="validate(this.value)">Click to start Assignment 3</button>
 		<div class="inner_wrapper" id="inner_wrapper">
 			<p id="ans"></p>
 			<p id="ans2"></p>
@@ -92,11 +93,18 @@
 					document.getElementById("ans2").style.display="none";
 
 				},
+				qa13:function(){
+
+					for(var i=1;i<=1000;i++)
+					{
+						getMultiPara(i);
+					}
+				}
 			}
 			stage.push(val.split(",")); 
 			
 			for(var i = 0; i<stage.length;i++){
-				if(j<=12)
+				if(j<=13)
 				{
 					document.getElementById("bt1").value="qa"+(j);
 					document.getElementById("bt1").innerHTML="Click for QA "+(j);
@@ -231,6 +239,14 @@ function getCompare(a){
 	document.getElementById("ans").innerHTML="The greatest num among all is "+num;
 	document.getElementById("ans2").style.display="block";
 	document.getElementById("ans2").innerHTML="These are the given numbers by user "+a;
+}
+
+//----12
+function getMultiPara(){
+	document.getElementById("ans").innerHTML="Passed thousand parameters to this function, Please check the console";
+	for (var i=0; i < arguments.length; i++) {
+		console.log(arguments[i]);
+	}
 }
 </script>
 </body>
